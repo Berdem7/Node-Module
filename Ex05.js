@@ -9,3 +9,4 @@ function Ex5(number1, number2) {
 
 console.log(Ex5(30, 20));
 console.log(Ex5(90, 80));
+console.log(Ex5(10, 70));
