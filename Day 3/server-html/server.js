@@ -6,7 +6,7 @@ http
     response.writeHead(200);
     // response.write("<h1>Hello</h1>");
     response.write(
-      fs.readFile("index.html", (error, data) => {
+      fs.readFile("index.html", function (error, data) {
         if (error) {
           throw error;
         } else {
