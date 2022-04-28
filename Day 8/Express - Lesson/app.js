@@ -42,13 +42,6 @@ app.get("/api/foods", (req, res) => {
             `;
       });
       let foodsHtml = table1 + tableHead + tableMain + table2;
-      //   foods.data.map((e) => {
-      //     res.send(`<h1>${e.name}</h1>`);
-      //     res.send(`<h1>${e.price}</h1>`);
-      //     res.send(`<h1>${e.quantity}</h1>`);
-      //     // res.send(`${e.name}`);
-      //     // return e.name;
-      //   });
       res.send(foodsHtml);
     }
   });
