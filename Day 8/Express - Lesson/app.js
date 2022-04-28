@@ -20,17 +20,27 @@ app.get("/api/foods", (req, res) => {
       `;
 
       let tableMain = "";
-      for (let i = 0; i < foods.data.length; i++) {
-        // console.log(res);
-        // res.write(`
+      //   for (let i = 0; i < foods.data.length; i++) {
+      //     // console.log(res);
+      //     // res.write(`
+      //     tableMain += `<tr>
+      //         <td >${foods.data[i].name}</td>
+      //         <td >${foods.data[i].price}</td>
+      //         <td >${foods.data[i].portion}</td>
+      //         <td >${foods.data[i].stock}</td>
+      //         </tr>
+      //         `;
+      //   }
+
+      foods.data.map((e) => {
         tableMain += `<tr>
-            <td >${foods.data[i].name}</td>
-            <td >${foods.data[i].price}</td>
-            <td >${foods.data[i].portion}</td>
-            <td >${foods.data[i].stock}</td>
+            <td >${e.name}</td>
+            <td >${e.price}</td>
+            <td >${e.portion}</td>
+            <td >${e.stock}</td>
             </tr>
             `;
-      }
+      });
       let foodsHtml = table1 + tableHead + tableMain + table2;
       //   foods.data.map((e) => {
       //     res.send(`<h1>${e.name}</h1>`);
