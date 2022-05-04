@@ -1,0 +1,13 @@
+<body>
+  <table border="5" style="display: inline-block">
+    <tbody style="display: flex; flex-direction: row">
+      <% data.map((item)=>{%>
+
+      <tr style="display: flex; flex-direction: column">
+        <td><%=item.name%></td>
+        <td><img alt="" src="<%=item.color %>" width="200" height="200" /></td>
+      </tr>
+      <%});%>
+    </tbody>
+  </table>
+</body>
