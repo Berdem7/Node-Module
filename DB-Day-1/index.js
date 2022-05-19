@@ -84,6 +84,20 @@ app.post("/employees", (req, res) => {
   );
 });
 
+app.put("/employees", (req, res) => {
+  const employee = req.body;
+  console.log(employee);
+  // res.send(employee);
+  // connection.query(
+  //   `insert into employees values ((select max(emp_no)+1 from employees e), '${employee.birth_date}', '${employee.first_name}', '${employee.last_name}', '${employee.gender}', '${employee.hire_date}')`,
+  //   function (error, results, fields) {
+  //     if (error) throw error;
+  //     console.log("worked");
+  //     //   connection.end();
+  //   }
+  // );
+});
+
 app.listen(3000, () => {
   console.log("Express server started at port no : " + 3000);
 });
