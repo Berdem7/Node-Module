@@ -58,6 +58,22 @@ app.get("/unlock", (req, res) => {
   });
 });
 
+app.post("/order", (req, res) => {
+  const order = req.body;
+  // res.send(employee);
+  connection.query(
+    `begin;
+    insert into orders values ((select max(orderNumber)+1 from orders), ${order.orderDate}, ${order.requiredDate}, ${order.shippedDate},  ${order.status}, ${order.comments}, ${order.customerNumber});
+    insert into orderdetails values ((select max(orderNumber)+1 from orders), ${order.productCode}, ${order.quantityOrdered}, ${order.priceEach},  ${order.orderLineNumber});
+    commit;`,
+    function (error, results, fields) {
+      if (error) throw error;
+      console.log("worked");
+      //   connection.end();
+    }
+  );
+});
+
 app.listen(3008, () => {
   console.log("Express server started at port no : " + 3000);
 });
