@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const db = mongoose.connection;
 
 const UserSchema = new Schema({
+  _id: mongoose.Types.ObjectId,
   name: {
     type: String,
     required: [true, "Enter the name!"],
@@ -34,4 +35,4 @@ const UserSchema = new Schema({
   },
 });
 
-module.exports = UserSchema;
+module.exports = mongoose.model("Users", UserSchema);

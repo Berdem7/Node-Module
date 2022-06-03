@@ -3,9 +3,21 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const apiRoutes = require("./routes/api");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 app.use("/api", apiRoutes);
 app.use(express.json());
+app.use(cors());
+app.use((res, req, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Content-Type", "application/json");
+  next();
+});
 
 console.log(process.env.ATLAS_CONNECTION_URL);
 
